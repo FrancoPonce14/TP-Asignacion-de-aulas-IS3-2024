@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Departamentos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/css/auditVistas.css">
+<link rel="shortcut icon" href="/img/images1.png">
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="particles-js"></div>
+<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+				<a class="okayNav-header__logo navbar-brand" href="#">
+					<img src="/img/images1.png" alt="" class="logo-1 img-responsive">
+				</a>
+
+			</div> <!-- End: .col-xs-3 -->
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+				<nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
+					<ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
+						<li><a class="btn-nav" href="/">Home</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/auditor/index}">Volver atras</a></li>
+						</li>
+						<li><a class="btn-nav btn-border" href="#" data-toggle="modal"
+								data-target="#sign-up-form" th:href="@{/logout}">Cerrar Sesión</a></li>
+					</ul>
+					<ul class="okayNav__nav--invisible transition-enabled nav-right"></ul><a href="#"
+						class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span><span></span><span></span></a>
+				</nav>
+
+			</div> <!-- End: .col-xs-9 -->
+		</div> <!-- End: .row -->
+	</div> <!-- End: .container -->
+</header>
+<body class="login">
+	<!--<div class="container">
+
+<p id="pepe">&larr; <a th:href="@{/admin/usuario/nuevo}" style="color:black">click derecho para agregar a un nuevo usuario</a>  &rarr;</p>
+		</div>-->
+<div class="francoponce">
+		<h1><span class="blue">&lt;</span>Departamentos<span class="blue">&gt;</span> <span class="yellow">Lista</pan></h1>
+
+
+			<table class="container">
+				<thead>
+					<tr>
+						<th><h1>Nombre</h1></th>
+						
+					</tr>
+				</thead>
+				<tbody>
+				  <tr th:each="departamento: ${lstDepartamentos}">
+								<td><span th:text="${departamento.nombre}" /></td>
+										</tr>
+				</tbody>
+			</table>
+		</div>
+		
+
+  </body>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Grupo 3 - Auditor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/css/indexA.css">
+<link rel="shortcut icon" href="/img/images1.png">
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="particles-js"></div>
+<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+                    <a class="okayNav-header__logo navbar-brand" href="#">
+                        <img src="/img/images1.png" alt="" class="logo-1 img-responsive">
+                    </a>
+
+			</div> <!-- End: .col-xs-3 -->
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+				<nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
+					<ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
+						<li><a class="btn-nav" href="/">Home</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/auditor/usuarios}">Usuarios</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/auditor/perfiles}" >Roles</a></li>
+						</li>
+						<li><a class="btn-nav btn-border" href="#" data-toggle="modal"
+								data-target="#sign-up-form" sec:authorize="isAuthenticated()" th:href="@{/logout}">Cerrar Sesión</a></li>
+					</ul>
+					<ul class="okayNav__nav--invisible transition-enabled nav-right"></ul><a href="#"
+						class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span><span></span><span></span></a>
+				</nav>
+
+			</div> <!-- End: .col-xs-9 -->
+		</div> <!-- End: .row -->
+	</div> <!-- End: .container -->
+</header>
+<body class="login">
+	<div class="francoponce">
+	<div class="grids">
+		<div class="card-one">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-1">
+			 <a href="#" th:href="@{/notaPedido/index}"> <div class="text-box">
+				<h3 class="text-box-top">Ver estado de los Pedidos</h3>
+				<h1 class="text-box-middle">Pedido!</h1>
+				<h3 class="text-box-lower">--- Click derecho ---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-1">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-two">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-2">
+				<a href="#" th:href="@{/notaPedido/auditor/select}"> <div class="text-box">
+				<h3 class="text-box-top">Generar Pedido</h3>
+				<h1 class="text-box-middle">Pedido!</h1>
+				<h3 class="text-box-lower">--- click derecho ---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-2">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-three">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-3">
+				<a href="#" th:href="@{/departamento/index}"> <div class="text-box">
+				<h3 class="text-box-top">Ver departamentos</h3>
+				<h1 class="text-box-middle">Departamento!</h1>
+				<h3 class="text-box-lower">--- Click derecho ---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-3">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-four">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-4">
+				<a href="#" th:href="@{/carrera/index}"> <div class="text-box">
+				<h3 class="text-box-top">Ver carreras</h3>
+				<h1 class="text-box-middle">Carrera!</h1>
+				<h3 class="text-box-lower">--- Click derecho ---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-4">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-five">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-5">
+				<a href="#" th:href="@{/edificio/index}">  <div class="text-box">
+				<h3 class="text-box-top">Ver edificios</h3>
+				<h1 class="text-box-middle">Edificio!</h1>
+				<h3 class="text-box-lower">--- Click derecho---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-5">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-six">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-6">
+				<a href="#" th:href="@{/aula/index}"> <div class="text-box">
+				<h3 class="text-box-top">Ver aulas</h3>
+				<h1 class="text-box-middle">Aula!</h1>
+				<h3 class="text-box-lower">--- Click derecho---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-6">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<div class="card-seven">
+		  <div class="card">
+			<div class="card__side card__side--front" id="front-7">
+				<a href="#" th:href="@{/materia/index}">  <div class="text-box">
+				<h3 class="text-box-top">Ver Materias</h3>
+				<h1 class="text-box-middle">Materia!</h1>
+				<h3 class="text-box-lower">--- Click derecho---</h3>
+			  </div></a>
+			</div>
+			<div class="card__side card__side--back" id="back-7">
+			  <div class="text-box">
+				<h3 class="text-box-top">Cards Flipped</h3>
+				<h1 class="text-box-middle">Great!</h1>
+				<h3 class="text-box-lower">--- More Text ---</h3>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </body>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+
+</body>
+
+</html>

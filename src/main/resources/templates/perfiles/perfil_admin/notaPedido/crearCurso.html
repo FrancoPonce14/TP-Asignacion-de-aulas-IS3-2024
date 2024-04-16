@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<meta name="viewport" content="width=device-width initial-scale =1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="/css/edificio/editEdificio.css">
+
+</head>
+<body>
+		
+		<section class="container df-main">
+            <div class="df-modal">
+                <div class="df-modal-overlay"></div>
+                <div class="df-modal-content">
+                    <h2>Crear Pedido Curso</h2>
+                    <p>*Todos los campos son obligatorios</p>
+                    <form action="#" class="df-form" th:action="@{/notaPedido/curso/crear}" th:object="${curso}" method="post" autocomplete="off">
+                        <div class="df-input-box">
+             				<h1 style="color:white">CodCurso: </h1>
+                            <input type="text" name="codCurso" placeholder="codigo" required  th:field="*{codCurso}">
+                            <label for="codCurso"></label>
+                            <hr>
+                        	<h1 style="color:white">Fecha: </h1>
+                            <input type="date" name="number" placeholder="numero" required  th:field="*{fecha}">
+                            <label for="number"></label>
+                            <hr>
+                  			<h1 style="color:white">Turno: </h1>
+                             <select  th:field="*{turno}" required >
+									<option value="T">MAÑANA</option>
+								    <option value="N">TARDE</option>
+								    <option value="M">NOCHE</option>
+							</select>
+                            <hr>
+        				<p>
+                                <h1 style="color:white">Aula: </h1>
+                                <select th:field="*{aula}" class="df-form">
+                                    <option th:each="a : ${lstAulas}"
+                                      th:value="${a.id}" 
+                                      th:text="${a.numero}"/>
+                              </select>
+                            </p>
+                            <hr>
+                             <h1 style="color:white">Cantidad de estudiantes: </h1>
+                            <input type="text" name="cantEstudiantes" placeholder="cantidad de estudiantes" required  th:field="*{cantEstudiantes}">
+                            <label for="cantEstudiantes"></label>
+                            <hr>
+                            <p>
+                                <h1 style="color:white">Materia: </h1>
+                                <select th:field="*{materia}" class="df-form">
+                                    <option th:each="m : ${lstMaterias}"
+                                      th:value="${m.id}" 
+                                      th:text="${m.nombre}"/>
+                              </select>
+                            </p>
+                            <hr>
+                     			<h1 style="color:white">Observaciones: </h1>
+                            <input type="text" name="cantEstudiantes" placeholder="observaciones" required  th:field="*{observaciones}">
+                            <label for="cantEstudiantes"></label>
+                            <hr>
+                                             <p>
+                                <h1 style="color:white">Profesor: </h1>
+                                <select th:field="*{profesor}" class="df-form">
+                                    <option th:each="p : ${lstProfesores}"
+                                      th:value="${p.id}" 
+                                      th:text="${p.nombre}"/>
+                              </select>
+                            </p>
+                            <hr>
+                            <h1 style="color:white">Modalidad: </h1>
+                             <select  th:field="*{modalidad}" required >
+									<option value="Presencial - 100%">FULL PRESENCIAL</option>
+								    <option value="Presencial - 50%">SEMI PRESENCIAL</option>
+							</select>
+               
+                        </div>
+                       <!--<input type="hidden" th:field="*{id}"-->
+                        <hr>
+                        <br>
+                       <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+	</main>
+	<footer id="footer">
+</footer>
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="/js/edificio.js"></script>
+
+</body>
+</html>

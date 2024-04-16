@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<meta name="viewport" content="width=device-width initial-scale =1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="/css/edificio/editEdificio.css">
+
+</head>
+<body>
+		
+		<section class="container df-main">
+            <div class="df-modal">
+                <div class="df-modal-overlay"></div>
+                <div class="df-modal-content">
+                    <h2>Aula Laboratorio</h2>
+                    <p>*Todos los campos son obligatorios</p>
+                    <form action="#" class="df-form" th:action="@{/aula/laboratorio/crear}" th:object="${laboratorio}" method="post" autocomplete="off">
+                        <div class="df-input-box">
+                        	 Numero de Aula:
+                            <input type="text" name="number" placeholder="numero" required  th:field="*{numero}">
+                            <label for="number"></label>
+                            <hr>
+                            <p>
+                                Edificio:
+                                <select th:field="*{edificio}" class="df-form">
+                                    <option th:each="e : ${lstEdificios}"
+                                      th:value="${e.id}" 
+                                      th:text="${e.nombre}"/>
+                              </select>
+                            </p>
+                            <hr>
+                            Cantidad de computadoras: 
+                            <input type="text" name="cantpc" placeholder="cantidad de computadoras" required  th:field="*{cantPc}">
+                            <label for="cantpc"></label>
+                             Cantidad de sillas: 
+                            <input type="text" name="cantsilla" placeholder="cantidad de sillas" required  th:field="*{cantSilla}">
+                            <label for="cantsilla"></label>
+                        </div>
+                       <input type="hidden" th:field="*{id}"
+                        <br>
+                        <hr>
+                       <button type="submit">Finalizar <span class="las la-arrow-right"></span></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+	</main>
+	<footer id="footer">
+</footer>
+</div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="/js/edificio.js"></script>
+
+</body>
+</html>

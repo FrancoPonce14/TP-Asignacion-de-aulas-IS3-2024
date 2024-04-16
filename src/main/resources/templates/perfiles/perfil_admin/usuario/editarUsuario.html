@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Editar</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/css/audiyadminList.css">
+<link rel="shortcut icon" href="/img/images1.png">
+
+
+</head>
+<body>
+
+<div id="particles-js"></div>
+<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+				<a class="okayNav-header__logo navbar-brand" href="#">
+					<img src="/img/images1.png" alt="" class="logo-1 img-responsive">
+				</a>
+
+			</div>
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+				<nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
+					<ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
+						<li><a class="btn-nav" href="/">Home</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/admin/usuarios/}">Volver atras</a></li>
+						</li>
+						<li><a class="btn-nav btn-border" href="#" data-toggle="modal"
+								data-target="#sign-up-form" th:href="@{/logout}">Cerrar Sesión</a></li>
+					</ul>
+					<ul class="okayNav__nav--invisible transition-enabled nav-right"></ul><a href="#"
+						class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span><span></span><span></span></a>
+				</nav>
+
+			</div> 
+		</div> 
+	</div> 
+</header>
+<body class="login">
+	<div class="container">
+		<div class="login-container-wrapper clearfix">
+			<div class="logo">
+				<i class="fa fa-pencil-square-o"></i>
+			</div>
+			<div class="welcome"><strong>Editar Usuario</strong></div>
+			
+			<form class="form-horizontal login-form" action="#" th:action="@{editar}" th:object="${usuario}" method="post">
+				<p><strong>Nombre:</strong> <input class="form-control input-lg" type="text" th:field="*{nombre}" required></p>
+				<br>
+				<p><strong>Apellido:</strong>  <input class="form-control input-lg" type="text" th:field="*{apellido}" required></p>
+				<br>
+				<strong>Tipo DOC:</strong> 
+				<select  th:field="*{tipoDoc}" required >
+					<option value="DNI">DNI</option>
+					<option value="LE">LE</option>
+					<option value="LI">LI</option>
+					<option value="CI">CI</option>
+				</select>
+				<br>
+				<p><strong>DOC:</strong> <input class="form-control input-lg" type="number" th:field="*{documento}"required></p>
+				<br>
+				<p><strong>Email:</strong> <input class="form-control input-lg" type="email" th:field="*{email}"required></p>
+				<br>
+				<p><strong>Usuario:</strong> <input class="form-control input-lg" type="text" th:field="*{nombreUsuario}"required></p>
+				<br>
+				<p><strong>Contraseña:</strong> <input class="form-control input-lg" type="password" minlength="6" th:field="*{clave}"required></p>		
+				<br>	
+				               	<p>
+                    Rol:
+                	<select th:field="*{idPerfil}" class="form-select">
+			            <option th:each="roles : ${lstPerfiles}"
+			              th:value="${roles.idPerfil}" 
+			              th:text="${roles.nombre}"/>
+		          </select>
+                </p>
+                               <p>
+                	<input type="hidden" th:field="*{idUsuario}" />
+                </p>
+				<button class="btn btn-success btn-lg btn-block" type="submit">Finalizar</button>
+			</form>
+
+		</div>
+					    </br>
+	</div>
+  </body>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+
+</body>
+
+</html>

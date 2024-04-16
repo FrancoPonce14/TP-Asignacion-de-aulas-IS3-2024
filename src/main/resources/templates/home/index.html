@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Grupo 3 - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link href="/css/inicio.css"rel="stylesheet" >
+    <link rel="shortcut icon" href="/img/images1.png">
+
+</head>
+
+<body>
+    <header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+                    <a class="okayNav-header__logo navbar-brand" href="#">
+                        <img src="/img/images1.png" alt="" class="logo-1 img-responsive">
+                    </a>
+
+                </div> 
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+                    <nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
+                        <ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
+                            <li><a class="btn-nav" href="/">Home</a></li>
+                            <li><a class="btn-nav" href="https://github.com/FrancoPonce14/TP-Asignacion-de-aulas-IS3-2024/commits/dev/">Novedades</a></li>
+                            <li><a class="btn-nav" href="https://github.com/FrancoPonce14/TP-Asignacion-de-aulas-IS3-2024">Repo</a></li>
+                            </li>
+                            <li th:if="${perfil == 'ROLE_ANONYMOUS'}"><a class="btn-nav btn-border" href="#" data-toggle="modal"
+                                    data-target="#sign-up-form" th:href="@{/login}">Iniciar Sesión</a></li>
+                                    <li th:if="${perfil != 'ROLE_ANONYMOUS'}"><a class="btn-nav btn-border" href="#" data-toggle="modal"
+                                    data-target="#sign-up-form" th:href="@{/logout}">Cerrar Sesión</a></li>
+                        </ul>
+                        <ul class="okayNav__nav--invisible transition-enabled nav-right"></ul><a href="#"
+                            class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span><span></span><span></span></a>
+                    </nav>
+
+                </div> 
+            </div> 
+        </div> 
+    </header>
+
+    <section class="header-section-1 bg-image-1 header-js" id="header">
+        <div class="overlay-color">
+            <div class="container">
+                <div class="row section-separator">
+
+                    <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                        <div class="part-inner text-center">
+
+                            
+                            <h1 class="title">Trabajo práctico IS3 2024.</h1>
+
+                            <div class="detail">
+                              <div>  <h1 class="title2">Grupo 3 Integrantes: </h1>
+                                <br>
+                                <h2>Franco Ponce</h2>
+                                <h2>Santiago Fiordalisi</h2>
+                                <h2>Guido Huidobro</h2>
+                                <h2>Agustín Garabito</h2>
+                                <h2>Ignacio Mansilla</h2>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                                                <br>
+                                                                                                <br>
+                                                                                                <br>
+                                                                                                <br>
+                            </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                </div> 
+            </div> 
+        </div> 
+    </section>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/js/inicio.js"></script>
+
+</body>
+
+<footer></footer>
+
+
+</html>

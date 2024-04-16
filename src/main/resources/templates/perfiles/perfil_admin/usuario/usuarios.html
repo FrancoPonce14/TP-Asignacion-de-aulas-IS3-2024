@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Usuarios</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<meta name="viewport" content="width=device-width, initial-scale=1"><link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'><link rel="stylesheet" href="/css/audiyadminList.css">
+<link rel="shortcut icon" href="/img/images1.png">
+
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="particles-js"></div>
+<header id="header" class="okayNav-header navbar-fixed-top main-navbar-top">
+	<div class="container">
+		<div class="row">
+
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+
+				<a class="okayNav-header__logo navbar-brand" href="#">
+					<img src="/img/images1.png" alt="" class="logo-1 img-responsive">
+				</a>
+
+			</div> <!-- End: .col-xs-3 -->
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-6">
+
+				<nav role="navigation" class="okayNav pull-right loaded" id="js-navbar-menu">
+					<ul id="navbar-nav" class="navbar-nav okayNav__nav--visible">
+						<li><a class="btn-nav" href="/">Home</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/admin/perfiles}">Roles</a></li>
+						<li><a class="btn-nav" href="#" th:href="@{/admin/index}">Volver atras</a></li>
+						</li>
+						<li><a class="btn-nav btn-border" href="#" data-toggle="modal"
+								data-target="#sign-up-form" th:href="@{/logout}">Cerrar Sesión</a></li>
+					</ul>
+					<ul class="okayNav__nav--invisible transition-enabled nav-right"></ul><a href="#"
+						class="okayNav__menu-toggle okay-invisible"><span></span><span></span><span></span><span></span><span></span></a>
+				</nav>
+
+			</div> <!-- End: .col-xs-9 -->
+		</div> <!-- End: .row -->
+	</div> <!-- End: .container -->
+</header>
+<body class="login">
+	<div class="container">
+		<div class="tablada">
+	
+<table class="rwd-table">
+  <tr>
+    <th>Usuario</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Documento</th>
+    <th>Tipo</th>
+    <th>Email</th>
+    <th>Rol</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+ <tbody>
+   <tr th:each="usuario: ${lstUsuarios}">
+     <td><span th:text="${usuario.nombreUsuario}" /></td>
+						<td><span th:text="${usuario.nombre}" /></td>
+						<td><span th:text="${usuario.apellido}" /></td>
+						<td><span th:text="${usuario.documento}" /></td>
+						<td><span th:text="${usuario.tipoDoc}" /></td>
+						<td><span th:text="${usuario.email}" /></td>
+						<td><span th:text="${usuario.getPerfil().getNombre()}" /></td>
+								<td>
+								<a th:href="@{/admin/usuario/{id}(id=${usuario.idUsuario})}"><img class="tamimg" src="/img/editar.png" alt="no-img" ></a> 
+										</td>
+		                        <td>
+		                        	<a th:href="@{/admin/usuario/eliminar/{id}(id=${usuario.idUsuario})}"><img class="tamimg" src="/img/basura.png" alt="no-img" ></a> 
+		                        </td>
+     	</tr>
+    </tbody>
+</table>
+<div class="alert success-alert" th:if="${susscefulCrear}">
+  <h3 class="letraletra">El usuario se agregó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert danger-alert" th:if="${errorCrear}">
+  <h3 class="letraletra">El usuario no pudo ser agregado, intenté otra vez!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert success-alert" th:if="${susscefulEditar}">
+  <h3 class="letraletra">El usuario se editó correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert danger-alert" th:if="${errorEditar}">
+  <h3 class="letraletra">El usuario no pudo ser editado, intenté otra vez!</h3>
+  <a class="close">&times;</a>
+</div>
+<div class="alert warning-alert" th:if="${removed}">
+  <h3 class="letraletra">El usuario fue eliminado correctamente!</h3>
+  <a class="close">&times;</a>
+</div>
+<p id="pepe">&larr; <a th:href="@{/admin/usuario/nuevo}" style="color:black">click derecho para agregar a un nuevo usuario</a>  &rarr;</p>
+		</div>
+    
+	</div>
+
+  </body>
+  <footer>
+	<div class="container3"> 
+		<div class="row">
+		   <div class="col-lg-12">
+			 <div class="alert alert-info" role="alert">
+			   <div class="row vertical-align">
+				 <div class="col-xs-1 text-center">
+				   <i class="fa fa-info fa-2x"></i> 
+				 </div>
+				 <div class="col-xs-11">
+				   <strong>Information:</strong> Estas navegando en modo Administrador, suerte!
+				 </div>
+			   </div>
+			 </div>      
+		   </div>
+		 </div>  
+	   </div>
+  </footer>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script src='https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'></script><script  src="/js/login.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script><script  src="/js/alerts.js"></script>
+
+
+</body>
+
+</html>
+

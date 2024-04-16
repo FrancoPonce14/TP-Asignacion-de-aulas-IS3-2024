@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<meta name="viewport" content="width=device-width initial-scale =1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <meta name="description" content="how to create a toggle for light and dark mode using html,css and javascript">
+<meta name="description" content="toggle dark/light mode">
+<meta name="tags" content="toggle,darkmode,web design,admin dashboard,glassmorphism,codepen">
+<meta name="description" content="design a website">
+<meta name="description" content="create a glassmorphism website">
+    <meta name="keyword" content="dark mode, html,css,javascript, coding, programming, how to,learn">
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><link rel="stylesheet" href="/css/edificio/edificio.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<input type="checkbox" id="nav-toggle"> 
+
+<div class="sidebar">
+ 	<div class="sidebar-brand">
+ 		 	<h2><span class="las la-user-lock"></span><span id="kleenpulse">Grupo 23</span></h2>
+ 	</div>
+	 <div class="sidebar-menu">
+	 	<ul>
+	 		<li>
+	 			<a href="#" class="active" th:href="@{/admin/dashboard}"><span class="las la-igloo"></span>
+	 				<span>Dashboard</span>
+	 			</a>
+	 		</li>
+			<li>
+	 			<a href="#" th:href="@{/departamento/admin/index}"><span><i class="las la-city"></i></span>
+	 				<span>Departamento</span>
+	 			</a>
+	 		</li>
+			<li>
+	 			<a href="#" th:href="@{/carrera/admin/index}"><span class="lab la-wpforms"></span>
+	 				<span>Carrera</span>
+	 			</a>
+	 		</li>
+			<li>
+	 			<a href="#" th:href="@{/materia/admin/index}"><span class="las la-stream"></span>
+	 				<span>Materia</span>
+	 			</a>
+	 		</li>
+			<li>
+	 			<a href="#" th:href="@{/admin/index}"><span class="las la-arrow-circle-left"></span>
+	 				<span>Volver Atras</span>
+	 			</a>
+	 		</li>
+	 	</ul>
+	 </div>
+ </div>
+
+<div class="main-content">
+	<header>
+		<h2 class="heading" id="dashboard">
+			<label for="nav-toggle">
+				<span class="las la-bars"></span>
+			</label>
+			Dashboard
+		</h2>
+		<div class="search">
+            <div class="icon"></div>
+            <div class="input">
+                <input type="text" placeholder="search" id="mysearch" autocomplete="off">
+            </div>
+            <span class="clear" onclick="reset()"></span>
+        </div>
+		<div class="user-wrapper">
+			<img src="" alt="">
+			<div>
+				<a sec:authorize="isAuthenticated()" th:href="@{/logout}"><h4>Cerrar sessión</h4></a>
+				
+			</div>
+		</div>
+	</header>
+	<main>
+		<div id="pop-wrap">
+	<h1 class="pop-up">Light Mode Activated</h1>
+</div>
+<div class="switch" id="switch">
+	<div id="toggle">
+		
+		<i class="indicator"></i>
+			
+		</div>
+	</div>
+		<div class="cards">
+			<div class="card-single">
+				<div>
+					<h1 id="customer"></h1>
+					<!--<span>Edificios</span>-->
+					<a th:href="@{/carrera/admin/index}"> Carreras </a>
+				</div>
+				<div>
+					<span class="las la-eye"></span>
+				</div> 
+			</div>
+			<div class="card-single">
+				<div>
+					<h1 id="project"></h1>
+					<a th:href="@{/carrera/nuevo}">Agregar Carrera</a>
+					</div>
+				<div>
+					<span class="las la-plus"></span>
+				</div>
+			</div>
+			<div class="card-single">
+				<div>
+					<h1 id="order"></h1>
+					<a th:href="@{/carrera/index/editar}">Editar Carrera</a>
+					</div>
+				<div>
+					<span class="las la-edit"></span>
+				</div>
+			</div>
+			<div class="card-single">
+				<div>
+					<h1><p id="income"><b>k</b></p></h1>
+					<a th:href="@{/carrera/eliminar}">Eliminar Carrera</a>
+					</div>
+				<div>
+					<span class="las la-trash"></span>
+				</div>
+			</div>
+		</div>
+		<div class="recent-grid">
+			<div class="projects">
+				<div class="card">
+					<div class="card-header">
+						<h3 class="heading">Carreras</h3>
+						<button><a th:href="@{/carrera/nuevo/agregar}"> Agregar </a> <span class="las la-arrow-right"></span></button>
+					</div>
+					<div class="card-body">
+						<div class="table-responsive">
+							<table width="100%">
+							<thead>
+								<tr>
+									<td>Nombre</td>
+                                    <td>Departamento</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="carrera: ${lstCarreras}">
+								<td><span th:text="${carrera.nombre}" /></td>
+                                <td><span th:text="${carrera.departamento.nombre}" /></td>
+										</tr>
+							</tbody>
+						</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+	</main>
+	<footer id="footer">
+</footer>
+</div>
+<!-- partial -->
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script  src="/js/edificio.js"></script>
+
+</body>
+</html>

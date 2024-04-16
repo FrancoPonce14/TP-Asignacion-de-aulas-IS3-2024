@@ -1,0 +1,220 @@
+.nav {
+    display: inline-block;
+  }
+  ul,
+  li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+
+.overlay-color {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+/**
+ * =======================
+ * Navigation
+ * =======================
+ */
+.main-navbar-top {
+  border: 0px solid;
+  top: 0px;
+  padding-top: 25px;
+  transition: all 0.4s ease-out;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: transparent;
+  z-index: 100;
+}
+.main-navbar-top .okayNav-header {
+  background-color: transparent;
+}
+.main-navbar-top .navbar-brand {
+  display: block;
+  height: 77px;
+  padding: 0;
+  margin-left: 0px;
+}
+.main-navbar-top .navbar-brand img {
+  display: block;
+  height: 100%;
+}
+.main-navbar-top .navbar-brand .logo-1 {
+  display: block;
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    height: 100px;
+    width: 100px;
+    /* los siguientes valores son independientes del tamaño del círculo */
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 50%;
+    background-size: 100% auto;
+}
+.main-navbar-top .navbar-brand .logo-2 {
+  display: none;
+}
+.main-navbar-top .navbar-toggle {
+  padding: 19px 15px;
+}
+.main-navbar-top .navbar-toggle .icon-bar {
+  background-color: #2b323f;
+}
+.main-navbar-top ul li .btn-nav {
+  border-radius: 10px 10px 10px 10px ;
+  -webkit-border-radius: 10px 10px 10px 10px ;
+  -moz-border-radius: 10px 10px 10px 10px ;
+  -ms-border-radius: 10px 10px 10px 10px ;
+  -o-border-radius: 10px 10px 10px 10px ;
+  padding: 15px 15px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-right: 2px;
+  position: relative;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid;
+  border-color: transparent;
+}
+.main-navbar-top ul li .btn-nav:focus {
+  background-color: transparent !important;
+}
+.main-navbar-top ul li .btn-nav:hover {
+  background-color: transparent;
+  color: #ffffff;
+}
+.main-navbar-top ul li.active .btn-nav {
+  color: #ffffff;
+}
+.main-navbar-top ul li:last-child a {
+  margin-right: 0px;
+}
+.main-navbar-top .navbar-nav {
+  padding-top: 5px;
+}
+.main-navbar-top .navbar-nav .btn-nav.btn-border {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+.main-navbar-top .navbar-nav .btn-nav.btn-border:hover {
+  border-color: #ffffff;
+}
+.main-navbar-top .okayNav__menu-toggle span {
+  background-color: #ffffff;
+}
+.main-navbar-top .okayNav__nav--invisible {
+  top: 95px;
+  transition: all 0.4s ease-out;
+  transform-style: preserve-3d;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.main-navbar-top .okayNav__nav--invisible .btn-nav {
+  color: rgba(115, 115, 115, 0.7);
+  background-color: transparent;
+}
+.main-navbar-top .okayNav__nav--invisible .btn-nav:hover {
+  color: #2b323f;
+}
+.main-navbar-top .okayNav__nav--invisible.active .btn-nav {
+  color: #2b323f;
+}
+.main-navbar-top.navbar-home {
+  padding-top: 5;
+  background-color: #ffffff;
+  box-shadow: 0 1px 12px 0px rgba(0, 0, 0, 0.1) ;
+  padding-bottom:0px;
+}
+.main-navbar-top.navbar-home .okayNav__menu-toggle span {
+  background-color: #737373;
+}
+.main-navbar-top.navbar-home .okayNav__nav--invisible {
+  top: 70px;
+}
+.main-navbar-top.navbar-home .navbar-brand .logo-1 {
+  display: none;
+}
+.main-navbar-top.navbar-home .navbar-brand .logo-2 {
+  display: block;
+}
+.main-navbar-top.navbar-home ul li .btn-nav {
+  color: rgba(115, 115, 115, 0.7);
+  background-color: transparent;
+}
+.main-navbar-top.navbar-home ul li .btn-nav:hover {
+  color: #2b323f;
+}
+.main-navbar-top.navbar-home ul li.active .btn-nav {
+  color: #2b323f;
+}
+.main-navbar-top.navbar-home .navbar-nav .btn-nav.btn-border {
+  border-color: rgba(115, 115, 115, 0.7);
+}
+.main-navbar-top.navbar-home .navbar-nav .btn-nav.btn-border:hover {
+  border-color: #737373;
+}
+
+
+/**
+ * ===============================
+ * Header Style 1
+ * ===============================
+*/
+.bg-image-1 {
+  background: url('/img/unla-fondo.png');
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: initial;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+}
+.header-section-1 .logo-link {
+  max-width: 50px;
+  margin-bottom: 70px;
+}
+.header-section-1 .section-separator {
+  padding-top: 187px;
+}
+.header-section-1 .title {
+  color: #ffffff;
+}
+.header-section-1 .title2, h2 {
+  color: #0fb0d8;
+  font-family: Cursive;
+
+}
+.header-section-1 .detail {
+  margin-top: 40px;
+}
+.header-section-1 .detail p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 18px;
+  line-height: 30px;
+}*
+.header-section-1 .btn-form {
+  margin-top: 70px;
+}
+footer {
+  min-height: 70px;
+  background-color: #191919;
+  background-image: -moz-linear-gradient(top, #191919, #000000);
+  background-image: -o-linear-gradient(top, #191919, #000000);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #191919), color-stop(1, #000000));
+  background-image: -webkit-linear-gradient(#191919, #000000);
+  background-image: linear-gradient(top, #191919, #000000);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#191919', endColorStr='#000000');
+  border-top: 1px solid rgba(50, 50, 50, 0.3);
+  width: 100%;
+  /*position: relative;
+  clear: both;             
+  margin-top: 0px;            ELIMINADO
+  padding-top: 0px;
+  overflow: visible;*/
+  position: fixed;
+  bottom: 0;              /* NUEVO */
+}
