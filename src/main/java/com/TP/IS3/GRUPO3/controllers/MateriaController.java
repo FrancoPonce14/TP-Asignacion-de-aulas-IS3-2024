@@ -1,5 +1,7 @@
 package com.TP.IS3.GRUPO3.controllers;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +14,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.TP.IS3.GRUPO3.domain.Materia;
+import com.TP.IS3.GRUPO3.domain.Usuario;
+import com.TP.IS3.GRUPO3.repositorys.IUsuarioRepository;
 import com.TP.IS3.GRUPO3.services.ICarreraService;
 import com.TP.IS3.GRUPO3.services.IMateriaService;
+import com.TP.IS3.GRUPO3.services.IUsuarioService;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 
 @Controller
@@ -26,10 +31,16 @@ public class MateriaController {
     @Autowired
     private ICarreraService carreraService;
 
+    @Autowired
+    private IUsuarioRepository usuarioRepository;
+
     @GetMapping("/index")
-    public ModelAndView index_auditor() {
+    public ModelAndView index_auditor(Principal principal) {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_INDEX_MATERIA);
         mAV.addObject("lstMaterias", materiaService.getAll());
+        String username = principal.getName();
+        Usuario usuario = usuarioRepository.findByNombreUsuario(username);
+        mAV.addObject("usuario", usuario);
         return mAV;
     }
 

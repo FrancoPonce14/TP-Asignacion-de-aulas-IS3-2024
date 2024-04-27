@@ -3,6 +3,7 @@ package com.TP.IS3.GRUPO3.services.impl;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 import org.modelmapper.ModelMapper;
@@ -16,8 +17,10 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.TP.IS3.GRUPO3.domain.Materia;
 import com.TP.IS3.GRUPO3.domain.Perfil;
 import com.TP.IS3.GRUPO3.domain.Usuario;
+import com.TP.IS3.GRUPO3.repositorys.IMateriaRepository;
 import com.TP.IS3.GRUPO3.repositorys.IUsuarioRepository;
 import com.TP.IS3.GRUPO3.services.IUsuarioService;
 import com.TP.IS3.GRUPO3.util.UsuarioModel;
@@ -29,6 +32,9 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
     private IUsuarioRepository usuarioRepository;
 
     private ModelMapper modelMapper = new ModelMapper();
+
+    @Autowired
+    private IMateriaRepository materiaRepository;
 
     @Override
     public List<Usuario> findAll() {
@@ -92,5 +98,18 @@ public class UsuarioService implements IUsuarioService, UserDetailsService {
         grantedAuthorities.add(new SimpleGrantedAuthority(perfil.getNombre()));
 
         return new ArrayList<GrantedAuthority>(grantedAuthorities);
+    }
+
+    @Override
+    public void inscripcion(int idUsuario, int idMateria) {
+        Usuario usuario = usuarioRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
+        Materia materia = materiaRepository.findById(idMateria)
+                .orElseThrow(() -> new RuntimeException("Materia no encontrada"));
+    
+        usuario.getMaterias().add(materia);
+        materia.getUsuarios().add(usuario);
+    
+        usuarioRepository.save(usuario);
     }
 }

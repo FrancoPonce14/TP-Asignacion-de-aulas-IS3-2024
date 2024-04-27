@@ -143,7 +143,10 @@
 								<tr>
 									<td>Nombre</td>
                                     <td>Cod</td>
-                                    <td>Carrera</td>
+									<td>Tipo de comision</td>
+									<td>Docente</td>
+									<td>Turno</td>
+									<td>Carrera</td>
                                      <td>Editar</td>
 								</tr>
 							</thead>
@@ -151,6 +154,9 @@
 								<tr th:each="materia: ${lstMaterias}">
 								<td><span th:text="${materia.nombre}" /></td>
                                 <td><span th:text="${materia.codMateria}" /></td>
+								<td><span th:text="${materia.tipoCom}" /></td>
+								<td><span th:text="${materia.docente}" /></td>
+								<td><span th:text="${materia.turno}" /></td>
                                 <td><span th:text="${materia.carrera.nombre}" /></td>
                                 <td>
 								<a  id="df-contact" class="df-contact" th:href="@{/materia/editar/{id}(id=${materia.id})}"><img class="tamimg" src="/img/editar.png" alt="no-img" widht=20px height=20px></a> 

@@ -143,13 +143,19 @@
 								<tr>
 									<td>Nombre</td>
                                     <td>Cod</td>
-                                    <td>Carrera</td>
+									<td>Tipo de comision</td>
+									<td>Docente</td>
+									<td>Turno</td>
+									<td>Carrera</td>
 								</tr>
 							</thead>
 							<tbody>
 								<tr th:each="materia: ${lstMaterias}">
 								<td><span th:text="${materia.nombre}" /></td>
                                 <td><span th:text="${materia.codMateria}" /></td>
+								<td><span th:text="${materia.tipoCom}" /></td>
+								<td><span th:text="${materia.docente}" /></td>
+								<td><span th:text="${materia.turno}" /></td>
                                 <td><span th:text="${materia.carrera.nombre}" /></td>
 										</tr>
 							</tbody>

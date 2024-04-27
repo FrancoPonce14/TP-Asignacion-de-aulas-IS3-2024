@@ -13,4 +13,5 @@ public interface IUsuarioService {
 	UsuarioModel findById(int id);
 	UsuarioModel findByNombreUsuario(String nombreUsuario);
 	public List<Usuario> findByIdPerfil(int idPerfil);
+	public void inscripcion(int idUsuario, int idMateria);
 }
