@@ -18,7 +18,6 @@ import com.TP.IS3.GRUPO3.domain.Usuario;
 import com.TP.IS3.GRUPO3.repositorys.IUsuarioRepository;
 import com.TP.IS3.GRUPO3.services.ICarreraService;
 import com.TP.IS3.GRUPO3.services.IMateriaService;
-import com.TP.IS3.GRUPO3.services.IUsuarioService;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 
 @Controller
