@@ -1,6 +1,7 @@
 package com.TP.IS3.GRUPO3.controllers;
 
 import java.security.Principal;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -111,5 +112,12 @@ public class MateriaController {
         materiaService.remove(id);
         redirectAttributes.addFlashAttribute("materia_borrado", true);
         return new RedirectView(ViewRouteHelper.MATERIA_REDIRECT);
+    }
+
+    @GetMapping("/{idMateria}/usuarios")
+    public ModelAndView getUsuariosByMateriaId(@PathVariable("idMateria") int idMateria) {
+        ModelAndView mav = new ModelAndView(ViewRouteHelper.INDEX_MATERIA_USUARIOS);
+        mav.addObject("usuarios", materiaService.traerUsuariosByMateriaId(idMateria));
+        return mav;
     }
 }

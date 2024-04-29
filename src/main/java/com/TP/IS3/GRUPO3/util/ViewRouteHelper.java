@@ -80,6 +80,7 @@ public class ViewRouteHelper {
 	public final static String MATERIA_EDITAR = "/perfiles/perfil_admin/materia/editarMateria";
 	public final static String MATERIA_EDIT = "/perfiles/perfil_admin/materia/edit";
 	public final static String MATERIA_ELIMINAR = "/perfiles/perfil_admin/materia/eliminarMateria";
+	public final static String INDEX_MATERIA_USUARIOS = "/perfiles/perfil_admin/materia/verUsuarios";
 	//NOTA PEDIDO
 	public final static String NOTAPEDIDO_REDIRECT = "/notaPedido/admin/index";
 	public final static String INDEX_NOTAPEDIDO = "/perfiles/perfil_admin/notaPedido/index";

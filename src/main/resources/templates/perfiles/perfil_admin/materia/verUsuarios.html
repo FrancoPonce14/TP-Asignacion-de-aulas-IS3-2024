@@ -34,22 +34,7 @@
 	 			</a>
 	 		</li>
 			<li>
-	 			<a href="#" th:href="@{/departamento/admin/index}"><span><i class="las la-city"></i></span>
-	 				<span>Departamento</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/carrera/admin/index}"><span class="lab la-wpforms"></span>
-	 				<span>Carrera</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/materia/admin/index}"><span class="las la-stream"></span>
-	 				<span>Materia</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/admin/index}"><span class="las la-arrow-circle-left"></span>
+	 			<a href="#" th:href="@{/materia/admin/index}"><span class="las la-arrow-circle-left"></span>
 	 				<span>Volver Atras</span>
 	 			</a>
 	 		</li>
@@ -91,95 +76,41 @@
 			
 		</div>
 	</div>
-		<div class="cards">
-			<div class="card-single">
-				<div>
-					<h1 id="customer"></h1>
-					<!--<span>Edificios</span>-->
-					<a th:href="@{/materia/admin/index}"> Materias </a>
-				</div>
-				<div>
-					<span class="las la-eye"></span>
-				</div> 
-			</div>
-			<div class="card-single">
-				<div>
-					<h1 id="project"></h1>
-					<a th:href="@{/materia/nuevo}">Agregar Materia</a>
-					</div>
-				<div>
-					<span class="las la-plus"></span>
-				</div>
-			</div>
-			<div class="card-single">
-				<div>
-					<h1 id="order"></h1>
-					<a th:href="@{/materia/index/editar}">Editar Materia</a>
-					</div>
-				<div>
-					<span class="las la-edit"></span>
-				</div>
-			</div>
-			<div class="card-single">
-				<div>
-					<h1><p id="income"><b>k</b></p></h1>
-					<a th:href="@{/materia/eliminar}">Eliminar Materia</a>
-					</div>
-				<div>
-					<span class="las la-trash"></span>
-				</div>
-			</div>
-		</div>
-		
 		<div class="recent-grid">
 			<div class="projects">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="heading">Materias</h3>
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table width="100%">
-							<thead>
-								<tr>
-									<td>Nombre</td>
-                                    <td>Cod</td>
-									<td>Tipo de comision</td>
-									<td>Docente</td>
-									<td>Turno</td>
-									<td>Estudiantes</td>
-									<td>Aula</td>
-									<td>Carrera</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="materia: ${lstMaterias}">
-								<td><span th:text="${materia.nombre}" /></td>
-                                <td><span th:text="${materia.codMateria}" /></td>
-								<td><span th:text="${materia.tipoCom}" /></td>
-								<td><span th:text="${materia.docente}" /></td>
-								<td><span th:text="${materia.turno}" /></td>
-								<td><a th:href="@{/materia/{id}/usuarios(id=${materia.id})}">Ver estudiantes</a></td>
-								<td>null</td>
-                                <td><span th:text="${materia.carrera.nombre}" /></td>
-										</tr>
-							</tbody>
-						</table>
-						</div>
-					</div>
-				</div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="heading">Usuarios</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td>Apellido</td>
+                                        <td>Documento</td>
+                                        <td>Email</td>
+                                        <td>Nombre de Usuario</td>
+                                        <td>Habilitado</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="usuario : ${usuarios}">
+                                        <td><span th:text="${usuario.nombre}"></span></td>
+                                        <td><span th:text="${usuario.apellido}"></span></td>
+                                        <td><span th:text="${usuario.documento}"></span></td>
+                                        <td><span th:text="${usuario.email}"></span></td>
+                                        <td><span th:text="${usuario.nombreUsuario}"></span></td>
+                                        <td><span th:text="${usuario.habilitado}"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			</div>
-			<div class="cards2"></div>
-			<div class="card-single2">
-				<div>
-					<h1><p><b>Asignar Aulas</b></h1>
-					<a>Asigna de forma automatica aulas a todas las materias</a>
-					</div>
-				<div>
-					<span class="las la-sitemap"></span>
-				</div>
-			</div>
-		</div>
 		
 	</main>
 	<footer id="footer">
