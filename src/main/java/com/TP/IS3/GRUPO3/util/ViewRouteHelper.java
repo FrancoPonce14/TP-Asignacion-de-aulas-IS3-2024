@@ -48,14 +48,6 @@ public class ViewRouteHelper {
 	public final static String AULA_EDITAR_L = "/perfiles/perfil_admin/aula/editarLaboratorio";
 	public final static String AULA_EDITAR_T = "/perfiles/perfil_admin/aula/editarTradicional";
 	public final static String AULA_ELIMINAR = "/perfiles/perfil_admin/aula/eliminarAula";
-	//ESPACIO ADMIN
-	public final static String ESPACIO_REDIRECT = "/espacio/admin/index";
-	public final static String INDEX_ESPACIO = "/perfiles/perfil_admin/espacio/index";
-	public final static String ESPACIO_NUEVO = "/perfiles/perfil_admin/espacio/crearEspacio";
-	public final static String ESPACIO_AGREGAR = "/perfiles/perfil_admin/espacio/agregarEspacio";
-	public final static String ESPACIO_EDITAR = "/perfiles/perfil_admin/espacio/editarEspacio";
-	public final static String ESPACIO_EDIT = "/perfiles/perfil_admin/espacio/edit";
-	public final static String ESPACIO_ELIMINAR = "/perfiles/perfil_admin/espacio/eliminarEspacio";
 	//DEPARTAMENTO ADMIN
 	public final static String DEPARTAMENTO_REDIRECT = "/departamento/admin/index";
 	public final static String INDEX_DEPARTAMENTO = "/perfiles/perfil_admin/departamento/index";
@@ -80,18 +72,6 @@ public class ViewRouteHelper {
 	public final static String MATERIA_EDITAR = "/perfiles/perfil_admin/materia/editarMateria";
 	public final static String MATERIA_EDIT = "/perfiles/perfil_admin/materia/edit";
 	public final static String MATERIA_ELIMINAR = "/perfiles/perfil_admin/materia/eliminarMateria";
-	//NOTA PEDIDO
-	public final static String NOTAPEDIDO_REDIRECT = "/notaPedido/admin/index";
-	public final static String INDEX_NOTAPEDIDO = "/perfiles/perfil_admin/notaPedido/index";
-	public final static String NOTAPEDIDO_SELECT = "/perfiles/perfil_admin/notaPedido/select";
-	public final static String NOTAPEDIDO_NUEVO_C = "/perfiles/perfil_admin/notaPedido/crearCurso";
-	public final static String NOTAPEDIDO_NUEVO_F = "/perfiles/perfil_admin/notaPedido/crearFinal";
-	public final static String NOTAPEDIDO_EDITAR = "/perfiles/perfil_admin/notaPedido/editarNotaPedido";
-	public final static String NOTAPEDIDO_EDITAR_C = "/perfiles/perfil_admin/notaPedido/editarCurso";
-	public final static String NOTAPEDIDO_EDITAR_F = "/perfiles/perfil_admin/notaPedido/editarFinal";
-	public final static String NOTAPEDIDO_ELIMINAR = "/perfiles/perfil_admin/notaPedido/eliminarNotaPedido";
-	public final static String NOTAPEDIDO_VER_CURSO = "/perfiles/perfil_admin/notaPedido/verCurso";
-	public final static String NOTAPEDIDO_VER_FINAL = "/perfiles/perfil_admin/notaPedido/verFinal";
 	// VISTAS DEL AUDITOR Y PODER REALIZAR PEDIDO
 	public final static String AUDITOR_INDEX_NOTAPEDIDO = "/perfiles/perfil_auditor/notaPedido/index";
 	public final static String AUDITOR_CREAR_NOTAPEDIDO = "/perfiles/perfil_auditor/notaPedido/crearPedido";
