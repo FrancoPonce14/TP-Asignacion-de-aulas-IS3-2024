@@ -19,6 +19,14 @@ public class Materia {
 	
 	@Column(name = "materia", nullable=false)
 	private String nombre;
+
+	private String docente;
+
+	private String turno;
+
+	private String tipoCom;
+	
+	private String tipoAula; // laboratorio o tradicional
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "carrera_id")
