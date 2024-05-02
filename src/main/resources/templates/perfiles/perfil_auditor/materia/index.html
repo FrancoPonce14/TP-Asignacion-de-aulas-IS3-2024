@@ -31,6 +31,7 @@
                     <th><h1>Docente</h1></th>
                     <th><h1>Turno</h1></th>
                     <th><h1>Carrera</h1></th>
+                    <th><h1>Acción</h1></th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +42,11 @@
                     <td><span th:text="${materia.docente}" /></td>
                     <td><span th:text="${materia.turno}" /></td>
                     <td><span th:text="${materia.carrera.nombre}" /></td>
+                    <td>
+                        <form th:action="@{/auditor/usuarios/{idEstudiante}/inscribir/{idMateria}(idEstudiante=${estudiante.idUsuario}, idMateria=${materia.id})}" method="post">-->
+                            <button type="submit" class="btn btn-primary">Inscribirse</button>
+                        </form>
+                    </td>
                 </tr>
             </tbody>
         </table>

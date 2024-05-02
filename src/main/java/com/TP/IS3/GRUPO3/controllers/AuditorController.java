@@ -12,9 +12,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
 import com.TP.IS3.GRUPO3.domain.Estudiante;
@@ -97,6 +100,18 @@ public class AuditorController {
         PerfilPDFExporter exportar = new PerfilPDFExporter(lstPerfiles);
         exportar.export(response);
 
+    }
+
+    @PostMapping("/usuarios/{idEstudiante}/inscribir/{idMateria}")
+    public String inscribirUsuarioAMateria(@PathVariable("idEstudiante") int idEstudiante, @PathVariable("idMateria") int idMateria, RedirectAttributes redirectAttributes) {
+        try {
+            usuarioService.inscripcion(idEstudiante, idMateria);
+            redirectAttributes.addFlashAttribute("success", "Estudiante inscriptto correctamente");
+        } catch (RuntimeException ex) {
+            redirectAttributes.addFlashAttribute("error", ex.getMessage());
+        }
+    
+        return "redirect:/materia/index";
     }
 
 }
