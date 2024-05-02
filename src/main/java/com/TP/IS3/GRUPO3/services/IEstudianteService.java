@@ -13,4 +13,5 @@ public interface IEstudianteService {
 	EstudianteModel findById(int id);
 	EstudianteModel findByNombreUsuario(String nombreUsuario);
 	public List<Estudiante> findByIdPerfil(int idPerfil);
+	public void inscripcion(int idUsuario, int idMateria);
 }

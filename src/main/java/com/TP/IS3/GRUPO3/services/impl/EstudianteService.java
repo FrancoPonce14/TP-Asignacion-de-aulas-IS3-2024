@@ -18,7 +18,9 @@ import org.springframework.stereotype.Service;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
 import com.TP.IS3.GRUPO3.domain.Estudiante;
+import com.TP.IS3.GRUPO3.domain.Materia;
 import com.TP.IS3.GRUPO3.repositorys.IEstudianteRepository;
+import com.TP.IS3.GRUPO3.repositorys.IMateriaRepository;
 import com.TP.IS3.GRUPO3.services.IEstudianteService;
 import com.TP.IS3.GRUPO3.util.EstudianteModel;
 
@@ -26,42 +28,45 @@ import com.TP.IS3.GRUPO3.util.EstudianteModel;
 public class EstudianteService implements IEstudianteService, UserDetailsService {
 
     @Autowired
-    private IEstudianteRepository usuarioRepository;
+    private IEstudianteRepository estudianteRepository;
+
+    @Autowired
+    private IMateriaRepository materiaRepository;
 
     private ModelMapper modelMapper = new ModelMapper();
 
     @Override
     public List<Estudiante> findAll() {
-        return usuarioRepository.findAll();
+        return estudianteRepository.findAll();
     }
 
     @Override
     public EstudianteModel findById(int id) {
-        return modelMapper.map(usuarioRepository.findByIdUsuario(id), EstudianteModel.class);
+        return modelMapper.map(estudianteRepository.findByIdUsuario(id), EstudianteModel.class);
     }
 
     @Override
     public EstudianteModel findByNombreUsuario(String nombreUsuario) {
-        return modelMapper.map(usuarioRepository.findByNombreUsuario(nombreUsuario), EstudianteModel.class);
+        return modelMapper.map(estudianteRepository.findByNombreUsuario(nombreUsuario), EstudianteModel.class);
     }
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
-    public EstudianteModel insertOrUpdate(EstudianteModel usuarioModel) {
-        String clave = bCryptPasswordEncoder.encode(usuarioModel.getClave());
-        usuarioModel.setClave(clave);
-        Estudiante usuario = modelMapper.map(usuarioModel, Estudiante.class);
+    public EstudianteModel insertOrUpdate(EstudianteModel estudianteModel) {
+        String clave = bCryptPasswordEncoder.encode(estudianteModel.getClave());
+        estudianteModel.setClave(clave);
+        Estudiante usuario = modelMapper.map(estudianteModel, Estudiante.class);
         usuario.setHabilitado(true);
-        usuarioRepository.save(usuario);
+        estudianteRepository.save(usuario);
         return modelMapper.map(usuario, EstudianteModel.class);
     }
 
     @Override
     public boolean remove(int id) {
         try {
-            usuarioRepository.deleteById(id);
+            estudianteRepository.deleteById(id);
             return true;
         } catch (Exception e) {
             return false;
@@ -70,13 +75,13 @@ public class EstudianteService implements IEstudianteService, UserDetailsService
 
     @Override
     public List<Estudiante> findByIdPerfil(int idPerfil) {
-        List<Estudiante> lista = usuarioRepository.findByIdPerfil(idPerfil);
+        List<Estudiante> lista = estudianteRepository.findByIdPerfil(idPerfil);
         return lista;
     }
 
     @Override
     public UserDetails loadUserByUsername(String nombreUsuario) throws UsernameNotFoundException {
-        Estudiante usuario = usuarioRepository.findByNombreUsuario(nombreUsuario);
+        Estudiante usuario = estudianteRepository.findByNombreUsuario(nombreUsuario);
         User u = buildUser(usuario, buildGrantedAuthorities(usuario.getPerfil()));
         return u;
     }
@@ -93,4 +98,18 @@ public class EstudianteService implements IEstudianteService, UserDetailsService
 
         return new ArrayList<GrantedAuthority>(grantedAuthorities);
     }
+
+    @Override
+    public void inscripcion(int idUsuario, int idMateria) {
+        Estudiante estudiante = estudianteRepository.findById(idUsuario)
+                .orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
+        Materia materia = materiaRepository.findById(idMateria)
+                .orElseThrow(() -> new RuntimeException("Materia no encontrada"));
+    
+        estudiante.getMaterias().add(materia);
+        materia.getEstudiantes().add(estudiante);
+    
+        estudianteRepository.save(estudiante);
+    }
+
 }
