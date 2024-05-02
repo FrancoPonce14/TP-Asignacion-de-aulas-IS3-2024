@@ -112,4 +112,11 @@ public class MateriaController {
         redirectAttributes.addFlashAttribute("materia_borrado", true);
         return new RedirectView(ViewRouteHelper.MATERIA_REDIRECT);
     }
+
+    @GetMapping("/{idMateria}/estudiantes")
+    public ModelAndView getUsuariosByMateriaId(@PathVariable("idMateria") int idMateria) {
+        ModelAndView mav = new ModelAndView(ViewRouteHelper.INDEX_MATERIA_ESTUDIANTES);
+        mav.addObject("estudiantes", materiaService.getEstudiantesByMateriaId(idMateria));
+        return mav;
+    }
 }

@@ -72,6 +72,7 @@ public class ViewRouteHelper {
 	public final static String MATERIA_EDITAR = "/perfiles/perfil_admin/materia/editarMateria";
 	public final static String MATERIA_EDIT = "/perfiles/perfil_admin/materia/edit";
 	public final static String MATERIA_ELIMINAR = "/perfiles/perfil_admin/materia/eliminarMateria";
+	public final static String INDEX_MATERIA_ESTUDIANTES = "/perfiles/perfil_admin/materia/verEstudiantes";
 	// VISTAS DEL AUDITOR Y PODER REALIZAR PEDIDO
 	public final static String AUDITOR_INDEX_MATERIA = "/perfiles/perfil_auditor/materia/index";
 	public final static String AUDITOR_INDEX_EDIFICIO = "/perfiles/perfil_auditor/edificio/index";
