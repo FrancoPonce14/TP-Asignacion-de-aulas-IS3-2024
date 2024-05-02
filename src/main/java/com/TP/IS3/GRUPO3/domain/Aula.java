@@ -1,10 +1,6 @@
 package com.TP.IS3.GRUPO3.domain;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +18,8 @@ public class Aula {
 	
 	@Column(name="numero", nullable=false)
 	private int numero;
+
+	private boolean ocupada;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="edificio_id", nullable=true)

@@ -24,7 +24,7 @@
 
 <div class="sidebar">
  	<div class="sidebar-brand">
- 		 	<h2><span class="las la-user-lock"></span><span id="kleenpulse">Grupo 23</span></h2>
+ 		 	<h2><span class="las la-user-lock"></span><span id="kleenpulse">Grupo 3</span></h2>
  	</div>
 	 <div class="sidebar-menu">
 	 	<ul>
@@ -34,32 +34,7 @@
 	 			</a>
 	 		</li>
 			<li>
-	 			<a href="#" th:href="@{/edificio/admin/index}"><span><i class="las la-building"></i></span>
-	 				<span>Edificio</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/aula/admin/index}"><span class="las la-school"></span>
-	 				<span>Aula</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/notaPedido/admin/index}"><span class="las la-file-alt"></span>
-	 				<span>notaPedido</span>
-	 			</a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/espacio/admin/index}"><span class="lab la-squarespace"></span>
-	 				<span>Espacio</span>
-	 			</a>
-	 		</li>
-			<li>
-                  <a href="#" th:href="@{/departamento/admin/index}"><span class="las la-city"></span>
-                        <span>Departamento</span>
-                    </a>
-	 		</li>
-			<li>
-	 			<a href="#" th:href="@{/admin/index}"><span class="las la-arrow-circle-left"></span>
+	 			<a href="#" th:href="@{/materia/admin/index}"><span class="las la-arrow-circle-left"></span>
 	 				<span>Volver Atras</span>
 	 			</a>
 	 		</li>
@@ -101,75 +76,40 @@
 			
 		</div>
 	</div>
-		<div class="cards">
-			<div class="card-single">
-				<div>
-					<h1 id="customer"></h1>
-					<!--<span>Edificios</span>-->
-					<a th:href="@{/espacio/admin/index}"> Espacios </a>
-				</div>
-				<div>
-					<span class="las la-eye"></span>
-				</div> 
-			</div>
-			<div class="card-single">
-				<div>
-					<h1 id="project"></h1>
-					<a th:href="@{/espacio/nuevo}">añadir Espacio</a>
-					</div>
-				<div>
-					<span class="las la-plus"></span>
-				</div>
-			</div>
-			<div class="card-single">
-				<div>
-					<h1 id="order"></h1>
-					<a th:href="@{/espacio/index/editar}">Editar Espacio</a>
-					</div>
-				<div>
-					<span class="las la-edit"></span>
-				</div>
-			</div>
-			<div class="card-single">
-				<div>
-					<h1><p id="income"><b>k</b></p></h1>
-					<a th:href="@{/espacio/eliminar}">Eliminar Espacio</a>
-					</div>
-				<div>
-					<span class="las la-trash"></span>
-				</div>
-			</div>
-		</div>
 		<div class="recent-grid">
 			<div class="projects">
-				<div class="card">
-					<div class="card-header">
-						<h3 class="heading">Espacios</h3>
-						<button><a th:href="@{/espacio/nuevo/agregar}"> Agregar </a> <span class="las la-arrow-right"></span></button>
-					</div>
-					<div class="card-body">
-						<div class="table-responsive">
-							<table width="100%">
-							<thead>
-								<tr>
-									<td>Fecha</td>
-									<td>libre</td>
-									<td>turno</td>
-									<td>Aula</td>
-								</tr>
-							</thead>
-							<tbody>
-								<tr th:each="espacio: ${lstEspacios}">
-								<td><span th:text="${espacio.fecha}" /></td>
-								<td><span th:text="${espacio.libre}" /></td>
-								<td><span th:text="${espacio.turno}" /></td>
-								<td><span th:text="${espacio.aula.numero}" /></td>
-								</tr>
-							</tbody>
-						</table>
-						</div>
-					</div>
-				</div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="heading">Estudiantes: <span>(TOTAL INSCRIPTOS: <span th:text="${estudiantes.size()}"></span>)</span></h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table width="100%">
+                                <thead>
+                                    <tr>
+                                        <td>Nombre</td>
+                                        <td>Apellido</td>
+                                        <td>Documento</td>
+                                        <td>Email</td>
+                                        <td>Nombre de Usuario</td>
+                                        <td>Habilitado</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="estudiante : ${estudiantes}">
+                                        <td><span th:text="${estudiante.nombre}"></span></td>
+                                        <td><span th:text="${estudiante.apellido}"></span></td>
+                                        <td><span th:text="${estudiante.documento}"></span></td>
+                                        <td><span th:text="${estudiante.email}"></span></td>
+                                        <td><span th:text="${estudiante.nombreUsuario}"></span></td>
+                                        <td><span th:text="${estudiante.habilitado}"></span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 			</div>
 		
 	</main>

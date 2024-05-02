@@ -1,5 +1,7 @@
 package com.TP.IS3.GRUPO3.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -14,9 +18,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="usuario")
+@Table(name="estudiante")
 @Data @NoArgsConstructor
-public class Usuario {
+public class Estudiante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,8 +54,12 @@ public class Usuario {
 	@JoinColumn(name="id_perfil", nullable=false)
 	private Perfil perfil;
 
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "inscripcion", joinColumns = @JoinColumn(name = "id_estudiante"), inverseJoinColumns = @JoinColumn(name = "id_materia"))
+	private List<Materia> materias;
 
-	public Usuario(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
+
+	public Estudiante(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
 			String nombreUsuario, String clave, Perfil perfil) {
 		super();
 		this.idUsuario = idUsuario;
