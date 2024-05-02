@@ -1,5 +1,7 @@
 package com.TP.IS3.GRUPO3.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.Data;
@@ -31,6 +33,9 @@ public class Materia {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "carrera_id")
 	private Carrera carrera;
+
+	@ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
+	private List<Estudiante> estudiantes;
 	
 
 }
