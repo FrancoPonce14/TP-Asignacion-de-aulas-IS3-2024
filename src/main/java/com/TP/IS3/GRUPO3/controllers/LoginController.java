@@ -51,7 +51,7 @@ public class LoginController {
 		perfil = perfil.replace("[", ""); 
 		perfil = perfil.replace("]", ""); // lo mismo que en el index, le saco los corchetes porque sino funciona como una coleccion 
 		if(perfil.equalsIgnoreCase("perfil_estudiante")) {
-			redirect = ViewRouteHelper.PERFIL_AUDITOR;
+			redirect = ViewRouteHelper.PERFIL_ESTUDIANTE;
 		}else if(perfil.equalsIgnoreCase("perfil_admin")){
 			redirect = ViewRouteHelper.PERFIL_ADMIN;
 		}

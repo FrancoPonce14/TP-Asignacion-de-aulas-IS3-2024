@@ -17,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
-import com.TP.IS3.GRUPO3.domain.Usuario;
+import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.TP.IS3.GRUPO3.services.IPerfilService;
-import com.TP.IS3.GRUPO3.services.IUsuarioService;
+import com.TP.IS3.GRUPO3.services.IEstudianteService;
 import com.TP.IS3.GRUPO3.util.PerfilModel;
 import com.TP.IS3.GRUPO3.util.PerfilPDFExporter;
-import com.TP.IS3.GRUPO3.util.UsuarioModel;
+import com.TP.IS3.GRUPO3.util.EstudianteModel;
 import com.TP.IS3.GRUPO3.util.UsuarioPDFExporter;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 import com.lowagie.text.DocumentException;
@@ -32,14 +32,14 @@ import com.lowagie.text.DocumentException;
 public class AuditorController {
 
     @Autowired
-    private IUsuarioService usuarioService;
+    private IEstudianteService usuarioService;
 
     @Autowired
     private IPerfilService perfilService;
 
     @GetMapping("/index")
     public ModelAndView indexAuditor(@RequestParam(name = "nombreUsuario", required = false) String nombreUsuario) {
-        ModelAndView mVA = new ModelAndView(ViewRouteHelper.INDEX_AUDITOR);
+        ModelAndView mVA = new ModelAndView(ViewRouteHelper.INDEX_ESTUDIANTE);
         org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         nombreUsuario = auth.getName();
         mVA.addObject("nombreUsuario", nombreUsuario);
@@ -51,15 +51,15 @@ public class AuditorController {
     // y que el administrado haga los cosas necesarias
     @GetMapping("/usuarios")
     public ModelAndView verUsuarios_Auditor() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_USUARIOS);
+        ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESTUDIANTE_USUARIOS);
         mAV.addObject("lstUsuarios", usuarioService.findAll());
-        mAV.addObject("usuario", new UsuarioModel());
+        mAV.addObject("usuario", new EstudianteModel());
         return mAV;
     }
 
     @GetMapping("/perfiles")
     public ModelAndView verPerfiles_Auditor() {
-        ModelAndView mAV = new ModelAndView(ViewRouteHelper.AUDITOR_PERFILES);
+        ModelAndView mAV = new ModelAndView(ViewRouteHelper.ESTUDIANTE_PERFILES);
         mAV.addObject("lstPerfiles", perfilService.findAll());
         mAV.addObject("perfil", new PerfilModel());
         return mAV;
@@ -76,7 +76,7 @@ public class AuditorController {
         String harderValue = "attachment; filename=usuarios_" + currentDateTime + ".pdf";
         response.setHeader(hardearKey, harderValue);
 
-        List<Usuario> lstUsuarios = usuarioService.findAll();
+        List<Estudiante> lstUsuarios = usuarioService.findAll();
         UsuarioPDFExporter exportar = new UsuarioPDFExporter(lstUsuarios);
         exportar.export(response);
 

@@ -6,15 +6,15 @@ import java.util.List;
  
 import javax.servlet.http.HttpServletResponse;
 
-import com.TP.IS3.GRUPO3.domain.Usuario;
+import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*;
  
 
 public class UsuarioPDFExporter {
-	private List<Usuario> lstUsuarios;
+	private List<Estudiante> lstUsuarios;
 	
-	public UsuarioPDFExporter(List<Usuario> lstUsuarios) {
+	public UsuarioPDFExporter(List<Estudiante> lstUsuarios) {
 		this.lstUsuarios = lstUsuarios;
 	}
 	
@@ -45,7 +45,7 @@ public class UsuarioPDFExporter {
 		
 	}
 	private void writeTableData(PdfPTable table) {
-        for (Usuario usuario : lstUsuarios) {
+        for (Estudiante usuario : lstUsuarios) {
             table.addCell(String.valueOf(usuario.getIdUsuario()));
             table.addCell(usuario.getNombre());
             table.addCell(usuario.getApellido());

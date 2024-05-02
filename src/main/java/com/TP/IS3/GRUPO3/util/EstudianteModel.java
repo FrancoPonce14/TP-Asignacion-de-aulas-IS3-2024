@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data @NoArgsConstructor
-public class UsuarioModel {
+public class EstudianteModel {
 	
 	private int idUsuario;
 	private String nombre;
@@ -21,7 +21,7 @@ public class UsuarioModel {
 	private int idPerfil;
 
 
-	public UsuarioModel(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
+	public EstudianteModel(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
 			String nombreUsuario, String clave, Perfil perfil) {
 		super();
 		this.idUsuario = idUsuario;

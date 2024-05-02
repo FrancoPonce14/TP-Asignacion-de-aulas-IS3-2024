@@ -18,11 +18,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
-import com.TP.IS3.GRUPO3.domain.Usuario;
+import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.TP.IS3.GRUPO3.services.IPerfilService;
-import com.TP.IS3.GRUPO3.services.IUsuarioService;
+import com.TP.IS3.GRUPO3.services.IEstudianteService;
 import com.TP.IS3.GRUPO3.util.PerfilModel;
-import com.TP.IS3.GRUPO3.util.UsuarioModel;
+import com.TP.IS3.GRUPO3.util.EstudianteModel;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 
 @Controller
@@ -30,7 +30,7 @@ import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 public class AdminController {
 
     @Autowired
-    private IUsuarioService usuarioService;
+    private IEstudianteService usuarioService;
     @Autowired
     private IPerfilService perfilService;
 
@@ -60,7 +60,7 @@ public class AdminController {
         String nombreUsuario = auth.getName();
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.VER_USUARIOS);
         mAV.addObject("lstUsuarios", usuarioService.findAll());
-        mAV.addObject("usuario", new UsuarioModel());
+        mAV.addObject("usuario", new EstudianteModel());
         mAV.addObject("usuarioActual", usuarioService.findByNombreUsuario(nombreUsuario));
         return mAV;
     }
@@ -77,23 +77,23 @@ public class AdminController {
     @GetMapping("/usuario/nuevo")
     public ModelAndView addUsuario_admin() {
         ModelAndView mAV = new ModelAndView(ViewRouteHelper.AGREGAR_USUARIO);
-        mAV.addObject("usuario", new UsuarioModel());
+        mAV.addObject("usuario", new EstudianteModel());
         mAV.addObject("lstPerfiles", perfilService.getPerfilesHabilitados());
         return mAV;
     }
 
     // ABM USUARIOS
     @PostMapping("/usuario/crear")
-    public RedirectView createUsuario_admin(@ModelAttribute("usuario") UsuarioModel usuarioModel,
+    public RedirectView createUsuario_admin(@ModelAttribute("usuario") EstudianteModel usuarioModel,
             RedirectAttributes redirectAttributes) {
 
         Perfil perfil = modelMapper.map(perfilService.findById(usuarioModel.getIdPerfil()), Perfil.class);
         usuarioModel.setPerfil(perfil);
         boolean salioError = false;
 
-        List<Usuario> lstUsuarios = usuarioService.findAll();
-        Usuario usuario = modelMapper.map(usuarioModel, Usuario.class);
-        for (Usuario u : lstUsuarios) {
+        List<Estudiante> lstUsuarios = usuarioService.findAll();
+        Estudiante usuario = modelMapper.map(usuarioModel, Estudiante.class);
+        for (Estudiante u : lstUsuarios) {
             if (u.getDocumento() == usuario.getDocumento() && u.getIdUsuario() != usuario.getIdUsuario()) {
                 salioError = true;
             }
@@ -108,19 +108,19 @@ public class AdminController {
     }
 
     @PostMapping("/usuario/editar")
-    public RedirectView editarUsuario_admin(@ModelAttribute("usuario") UsuarioModel usuarioModel,
+    public RedirectView editarUsuario_admin(@ModelAttribute("usuario") EstudianteModel usuarioModel,
             RedirectAttributes redirectAttributes) {
         org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
-        UsuarioModel user = usuarioService.findByNombreUsuario(auth.getName());
-        List<Usuario> lstUsuarios = usuarioService.findAll();
-        Usuario usuario = modelMapper.map(usuarioModel, Usuario.class);
+        EstudianteModel user = usuarioService.findByNombreUsuario(auth.getName());
+        List<Estudiante> lstUsuarios = usuarioService.findAll();
+        Estudiante usuario = modelMapper.map(usuarioModel, Estudiante.class);
 
         if (!user.equals(usuarioModel)) {
             Perfil perfil = modelMapper.map(perfilService.findById(usuarioModel.getIdPerfil()), Perfil.class);
             usuarioModel.setPerfil(perfil);
 
-            for (Usuario u : lstUsuarios) {
+            for (Estudiante u : lstUsuarios) {
                 if (u.getDocumento() == usuario.getDocumento() && u.getIdUsuario() != usuario.getIdUsuario()) {
                     redirectAttributes.addFlashAttribute("errorEditar", true);
                 } else {
@@ -138,7 +138,7 @@ public class AdminController {
     public RedirectView eliminarUsuario_admin(@PathVariable("id") int idUsuario,
             RedirectAttributes redirectAttributes) {
         org.springframework.security.core.Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UsuarioModel usuario = usuarioService.findByNombreUsuario(auth.getName());
+        EstudianteModel usuario = usuarioService.findByNombreUsuario(auth.getName());
         if (!(usuario.getIdUsuario() == idUsuario)) {
             usuarioService.remove(idUsuario);
             redirectAttributes.addFlashAttribute("removed", true);

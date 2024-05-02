@@ -14,9 +14,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="usuario")
+@Table(name="estudiante")
 @Data @NoArgsConstructor
-public class Usuario {
+public class Estudiante {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +51,7 @@ public class Usuario {
 	private Perfil perfil;
 
 
-	public Usuario(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
+	public Estudiante(int idUsuario, String nombre, String apellido, String tipoDoc, long documento, String email,
 			String nombreUsuario, String clave, Perfil perfil) {
 		super();
 		this.idUsuario = idUsuario;
