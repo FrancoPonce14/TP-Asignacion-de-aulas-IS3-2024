@@ -1549,3 +1549,58 @@ body.light::-webkit-scrollbar-thumb
 	color: #f44336;
 	font-size: 1.5em;
   }
+
+  .cards2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+    margin-top: 1rem;
+    padding: 0;
+    overflow: hidden;
+}
+
+.card-single2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: #4CAF50; /* Verde sólido */
+    padding: 1.2rem;
+    border-radius: 30px; /* Bordes redondeados */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card-single2:hover {
+    transform: scale(1.1);
+}
+
+.card-single2 div:last-child {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.card-single2 div:last-child span {
+    font-size: 3rem;
+    color: var(--icon-color);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.card-single2 div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-single2:hover h1,
+.card-single2:hover div:first-child span,
+.card-single2:hover div:last-child span {
+    color: #fff;
+}
