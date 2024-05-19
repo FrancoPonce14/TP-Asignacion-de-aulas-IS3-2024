@@ -148,6 +148,7 @@
 									<td>Docente</td>
 									<td>Turno</td>
 									<td>Estudiantes</td>
+									<td>Aula</td>
 									<td>Carrera</td>
 								</tr>
 							</thead>
@@ -162,6 +163,11 @@
 									<span th:if="${materia.estudiantes.size() == 0}">N/I</span>
 									<a th:unless="${materia.estudiantes.size() == 0}" th:href="@{/materia/{id}/estudiantes(id=${materia.id})}">Ver inscriptos</a>
 								</td>
+								<td>
+									<span th:if="${#lists.isEmpty(materia.aulas)}">N/A</span>
+									<span th:if="${#lists.size(materia.aulas) == 1}" th:text="${materia.aulas[0].numero + ' ' + materia.aulas[0].edificio.nombre}"></span>
+									<a th:if="${#lists.size(materia.aulas) > 1}" th:href="@{/materia/{id}/aulas(id=${materia.id})}">Ver aulas</a>
+								</td>
                                 <td><span th:text="${materia.carrera.nombre}" /></td>
 										</tr>
 							</tbody>
@@ -175,7 +181,7 @@
     <div>
         <h1><b>Asignar Aulas</b></h1>
         <form th:action="@{/materia/asignar-aulas}" method="post">
-            <button type="submit">Asigna de forma automática aulas a todas las materias</button>
+            <button type="submit">Asignar de forma automática aulas a todas las materias</button>
         </form>
     </div>
     <div>

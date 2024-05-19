@@ -36,6 +36,10 @@ public class Materia {
 
 	@ManyToMany(mappedBy = "materias", fetch = FetchType.LAZY)
 	private List<Estudiante> estudiantes;
+
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "asignaciones_aulas", joinColumns = @JoinColumn(name = "materia_id"), inverseJoinColumns = @JoinColumn(name = "aula_id"))
+	private List<Aula> aulas;
 	
 
 }

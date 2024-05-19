@@ -1,5 +1,7 @@
 package com.TP.IS3.GRUPO3.domain;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 import lombok.Getter;
@@ -24,5 +26,8 @@ public class Aula {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="edificio_id", nullable=true)
 	private Edificio edificio;
+	
+	@ManyToMany(mappedBy = "aulas")
+	private List<Materia> materias;
 
 }
