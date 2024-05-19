@@ -12,4 +12,6 @@ public interface IMateriaService {
 	public Materia findById(int id);
 	public boolean remove(int id);
 	public List<Estudiante> getEstudiantesByMateriaId(int idMateria);
+	public void asignarAulas();
+	
 }

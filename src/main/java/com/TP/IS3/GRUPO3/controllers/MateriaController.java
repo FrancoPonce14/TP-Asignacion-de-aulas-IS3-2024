@@ -119,4 +119,10 @@ public class MateriaController {
         mav.addObject("estudiantes", materiaService.getEstudiantesByMateriaId(idMateria));
         return mav;
     }
+
+    @PostMapping("/asignar-aulas")
+    public String inscribirUsuarioAMateria() {
+            materiaService.asignarAulas();
+        return "redirect:/materia/admin/index";
+    }
 }
