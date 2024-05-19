@@ -7,14 +7,14 @@
 	--content-BG:#022d47;
 	--dark-text:#b200ff;
 	--off-white:#f1f5f9;
-	--icon-color:#520293;
+	--icon-color:#9d0a0a;
 	--purple:linear-gradient(45deg,#99013e,#7f02ed);
 	--pink:linear-gradient(45deg,#c40051,#ff0066);
 	--orange:linear-gradient(45deg,#ff9000,#ffd400);
 	--moon:linear-gradient(45deg,#ff9000,#7f02ed);
 	--moon-only:linear-gradient(45deg,#fff,#7f02ed);
 	--sun:linear-gradient(45deg,#ffc700,#8300ff);
-	--new-BG:rgba(255,255,255,.3);
+	--new-BG:rgba(82,22,199,.3);
 	--new-content:rgba(255,255,255,.4);
 }
 *{
@@ -733,6 +733,7 @@ body.light .heading{
 }
 .cards
 {
+	border-radius: 30px;
 	display:grid;
 	grid-template-columns:repeat(4,1fr);
 	grid-gap:2rem;
@@ -794,6 +795,7 @@ body.light .heading{
 {
 /* 	background:#fff; */
 	background:var(--new-content);
+	border-radius: 30px;
 	
 }
 /* =========COUNTER=========== */
@@ -925,8 +927,8 @@ thead td
 td
 {
 	padding:.5rem 1rem;
-	font-size:1rem;
-	color:#fff;
+	font-size:1.5rem;
+	color:#000b11;
 }
 td .status
 {
