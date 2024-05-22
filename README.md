@@ -18,7 +18,7 @@ Para compilar y ejecutar este proyecto, seguir estos pasos:
 1. **Ejecutar el Script SQL**: Antes de compilar el proyecto, tenes que ejecutar el script SQL que está en la carpeta `script`. Podes ejecutar este script en MySQL Workbench u otra herramienta de gestión de bases de datos. Este script va a crear las tablas necesarias en la base de datos.
 
 
-2. **Compilar y Ejecutar el Proyecto con Spring Maven **: Usá Spring Maven para compilar y ejecutar el proyecto. Desde la línea de comandos, navega hasta el directorio raíz del proyecto y ejecuta el siguiente comando:
+2. **Compilar y Ejecutar el Proyecto con Spring Maven**: Usá Spring Maven para compilar y ejecutar el proyecto. Desde la línea de comandos, navega hasta el directorio raíz del proyecto y ejecuta el siguiente comando:
 
     ```
     mvn spring-boot:run
@@ -41,7 +41,7 @@ Para compilar y ejecutar este proyecto, seguir estos pasos:
 
 ## Vista de Administrador: Materias
 
-En esta instancia, se inscribieronalgunos estudiantes en algunas materias para probar la asignación de aulas.
+En esta instancia, se inscribieron algunos estudiantes en algunas materias para probar la asignación de aulas.
 
 - Para la entrega final, se abordarán algunos problemas de asignación, como:
   - La posibilidad de asignar más de un aula a una materia en caso de que tenga una gran cantidad de estudiantes y no haya suficientes aulas disponibles para esa capacidad.
