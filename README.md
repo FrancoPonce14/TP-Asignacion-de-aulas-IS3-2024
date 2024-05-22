@@ -1,4 +1,5 @@
 # Grupo 3
+En este readme se presenta un breve resumen de la funcionalidad del sistema para la primera entrega.
 
 ## Índice
 
@@ -8,7 +9,7 @@
 4. [Vista de Administrador: Aulas](#vista-de-administrador-aulas)
 5. [Vista de Administrador: Materias](#vista-de-administrador-materias)
 6. [Vista de Administrador: Estudiantes Inscritos en una Materia](#vista-de-administrador-estudiantes-inscritos-en-una-materia)
-7. [Vista de Administrador: Asignación de Aulas Automática a Materia](#vista-de-administrador-asignación-de-aulas-automática-a-materia)
+7. [Vista de Administrador: Asignación de Aulas Automática a Materia](#vista-de-administrador-asignacion-de-aulas-automatica-a-materia)
 8. [Login](#login)
 9. [Estudiante - Vista Index Parcial](#estudiante---vista-index-parcial)
 
@@ -49,6 +50,12 @@ Para compilar y ejecutar este proyecto, seguir estos pasos:
 ---
 ## Vista de Administrador: Aulas
 
+En esta vista, se pueden gestionar y visualizar información sobre las aulas disponibles. La capacidad de cada aula está determinada por:
+
+1. **Tradicional**: Por la cantidad de bancos disponibles.
+2. **Laboratorio**: Por la cantidad de (PCs) disponibles.
+
+Además, las aulas fueron creadas en base a las aulas reales disponibles en los distintos edificios de la UNLa.
 ![Vista de Aulas para Administradores](images/adminViewAulas.png)
 
 ## Vista de Administrador: Materias
@@ -65,11 +72,26 @@ En la imagen, algunas materias no tienen inscritos debido a que es solo una prue
 
 ## Vista de Administrador: Estudiantes Inscritos en una Materia
 
+En esta vista se listan todos los usuarios inscritos a la materia ```Programación de computadoras``` 
+
 ![Vista de Estudiantes Inscritos en una Aula para Administradores](images/adminViewEstudiantesInAula.png)
 
 ## Vista de Administrador: Asignacion de Aulas automatica a Materia
 
-![Vista de admin cuando asigno las aulas a las materias](images/adminAsignacionSuccessful.png)
+En esta vista de administrador, después de hacer clic en el botón `Asignar Aulas`, se ejecuta el algoritmo de asignación. Este algoritmo funciona internamente realizando las siguientes acciones:
+
+1. Obtiene todas las aulas y materias disponibles.
+2. Recorre las materias para verificar si ya tienen aulas asignadas.
+3. En caso de no tener aulas asignadas, verifica si la materia necesita un aula tradicional o un laboratorio.
+4. Dependiendo del tipo de aula requerida, utiliza el método correspondiente de la instancia para determinar la capacidad necesaria.
+5. Ordena las aulas disponibles según su capacidad.
+6. Recorre las aulas disponibles, verificando que no estén ocupadas y que cuenten con el espacio suficiente para la cantidad de estudiantes requeridos.
+
+> **Nota:** Para la entrega final, se deberá implementar el [algoritmo de asignación de mas de un aula a una materia](#vista-de-administrador-materias).
+
+El código del algoritmo de asignación se encuentra en `src/main/java/com/services/impl/MateriaService.java`.
+
+![Vista de administrador cuando se asignan las aulas a las materias](images/adminAsignacionSuccessful.png)
 
 ## Login
 
