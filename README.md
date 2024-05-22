@@ -11,6 +11,29 @@
 
 Actividades que ya estaban resueltas en el proyecto base, algunas que tambien estaban parcialmente completadas y fueron modificadas.
 
+### Ejecución del proyecto
+
+Para compilar y ejecutar este proyecto, seguir estos pasos:
+
+1. **Ejecutar el Script SQL**: Antes de compilar el proyecto, tenes que ejecutar el script SQL que está en la carpeta `script`. Podes ejecutar este script en MySQL Workbench u otra herramienta de gestión de bases de datos. Este script va a crear las tablas necesarias en la base de datos.
+
+
+2. **Compilar y Ejecutar el Proyecto con Spring Maven **: Usá Spring Maven para compilar y ejecutar el proyecto. Desde la línea de comandos, navega hasta el directorio raíz del proyecto y ejecuta el siguiente comando:
+
+    ```
+    mvn spring-boot:run
+    ```
+### Credenciales de Prueba
+
+- **Administrador**: 
+  - Usuario: admin
+  - Contraseña: admin123
+
+- **Usuarios Genéricos - X es incremental por usuario**:
+  - Usuario: usuarioX
+  - Contraseña: usuario
+
+
 ---
 ## Vista de Administrador: Aulas
 
