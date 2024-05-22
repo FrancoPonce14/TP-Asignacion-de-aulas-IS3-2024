@@ -1,5 +1,17 @@
 # Grupo 3
 
+## Índice
+
+1. [Actividades](#actividades)
+2. [Ejecución del proyecto](#ejecución-del-proyecto)
+3. [Credenciales de Prueba](#credenciales-de-prueba)
+4. [Vista de Administrador: Aulas](#vista-de-administrador-aulas)
+5. [Vista de Administrador: Materias](#vista-de-administrador-materias)
+6. [Vista de Administrador: Estudiantes Inscritos en una Materia](#vista-de-administrador-estudiantes-inscritos-en-una-materia)
+7. [Vista de Administrador: Asignación de Aulas Automática a Materia](#vista-de-administrador-asignación-de-aulas-automática-a-materia)
+8. [Login](#login)
+9. [Estudiante - Vista Index Parcial](#estudiante---vista-index-parcial)
+
 ![Portada](images/Portada.png)
 
 ## Actividades
