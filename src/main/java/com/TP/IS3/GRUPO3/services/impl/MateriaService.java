@@ -87,11 +87,6 @@ public class MateriaService implements IMateriaService {
 						break;
 					}
 				}
-				//PARA LA ENTREGA FINAL LO IDEAL SERIA MEJORAR ESTE METODO PARA QUE 
-				/*
-				 * 1- asigne mas de 1 aula a una materia (ya que ahora solo asigna 1
-				 * 2- optimizar
-				 */
 			}
 		}
 	}

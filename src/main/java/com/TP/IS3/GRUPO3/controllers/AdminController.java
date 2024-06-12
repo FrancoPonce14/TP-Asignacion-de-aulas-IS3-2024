@@ -18,11 +18,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
+import com.TP.IS3.GRUPO3.domain.model.EstudianteModel;
+import com.TP.IS3.GRUPO3.domain.model.PerfilModel;
 import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.TP.IS3.GRUPO3.services.IPerfilService;
 import com.TP.IS3.GRUPO3.services.IEstudianteService;
-import com.TP.IS3.GRUPO3.util.PerfilModel;
-import com.TP.IS3.GRUPO3.util.EstudianteModel;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 
 @Controller

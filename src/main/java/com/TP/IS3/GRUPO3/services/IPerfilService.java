@@ -3,7 +3,7 @@ package com.TP.IS3.GRUPO3.services;
 import java.util.List;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
-import com.TP.IS3.GRUPO3.util.PerfilModel;
+import com.TP.IS3.GRUPO3.domain.model.PerfilModel;
 
 public interface IPerfilService {
 

@@ -20,12 +20,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
+import com.TP.IS3.GRUPO3.domain.model.EstudianteModel;
+import com.TP.IS3.GRUPO3.domain.model.PerfilModel;
 import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.TP.IS3.GRUPO3.services.IPerfilService;
 import com.TP.IS3.GRUPO3.services.IEstudianteService;
-import com.TP.IS3.GRUPO3.util.PerfilModel;
 import com.TP.IS3.GRUPO3.util.PerfilPDFExporter;
-import com.TP.IS3.GRUPO3.util.EstudianteModel;
 import com.TP.IS3.GRUPO3.util.UsuarioPDFExporter;
 import com.TP.IS3.GRUPO3.util.ViewRouteHelper;
 import com.lowagie.text.DocumentException;

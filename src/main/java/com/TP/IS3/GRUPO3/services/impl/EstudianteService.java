@@ -17,12 +17,12 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
+import com.TP.IS3.GRUPO3.domain.model.EstudianteModel;
 import com.TP.IS3.GRUPO3.domain.Estudiante;
 import com.TP.IS3.GRUPO3.domain.Materia;
 import com.TP.IS3.GRUPO3.repositorys.IEstudianteRepository;
 import com.TP.IS3.GRUPO3.repositorys.IMateriaRepository;
 import com.TP.IS3.GRUPO3.services.IEstudianteService;
-import com.TP.IS3.GRUPO3.util.EstudianteModel;
 
 @Service
 public class EstudianteService implements IEstudianteService, UserDetailsService {

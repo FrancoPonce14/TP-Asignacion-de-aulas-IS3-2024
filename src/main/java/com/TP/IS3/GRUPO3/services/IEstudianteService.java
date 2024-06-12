@@ -3,7 +3,7 @@ package com.TP.IS3.GRUPO3.services;
 import java.util.List;
 
 import com.TP.IS3.GRUPO3.domain.Estudiante;
-import com.TP.IS3.GRUPO3.util.EstudianteModel;
+import com.TP.IS3.GRUPO3.domain.model.EstudianteModel;
 
 public interface IEstudianteService {
 

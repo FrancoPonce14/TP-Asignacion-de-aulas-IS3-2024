@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,7 +15,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="perfil")
-@Data @NoArgsConstructor
+@Data @NoArgsConstructor @AllArgsConstructor
 public class Perfil {
 
 	@Id
@@ -26,12 +27,5 @@ public class Perfil {
 	
 	@Column(name="habilitado", nullable=false)
 	private boolean habilitado;
-
-	public Perfil(int idPerfil, String nombre, boolean habilitado) {
-		super();
-		this.nombre = nombre;
-		this.idPerfil = idPerfil;
-		this.habilitado = habilitado;
-	}
 	
 }

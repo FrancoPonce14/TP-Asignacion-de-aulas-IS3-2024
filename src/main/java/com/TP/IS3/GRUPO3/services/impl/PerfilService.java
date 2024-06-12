@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.TP.IS3.GRUPO3.domain.Perfil;
+import com.TP.IS3.GRUPO3.domain.model.PerfilModel;
 import com.TP.IS3.GRUPO3.repositorys.IPerfilRepository;
 import com.TP.IS3.GRUPO3.services.IPerfilService;
-import com.TP.IS3.GRUPO3.util.PerfilModel;
 
 @Service
 public class PerfilService implements IPerfilService {
