@@ -67,25 +67,33 @@ public class MateriaService implements IMateriaService {
 		List<Laboratorio> laboratorios = aulaService.getAllLaboratorio();
 		List<Tradicional> tradicionales = aulaService.getAllTradicional();
 
-		// Segundo - recorro todas las materias y me fijo si ya tienen aulas o todavia no
-		// si no tiene, entonces, me fijo que tipo de aula necesita esa materia "Laboratorio" o "Tradicional"
 		for (Materia materia : materias) {
 			if (materia.getAulas().isEmpty()) {
 				String tipoAula = materia.getTipoAula();
 				List<? extends Aula> aulasDisponibles = tipoAula.equalsIgnoreCase("laboratorio") ? laboratorios
 						: tradicionales;
 
-				// Tercero - ordeno las aulas disponibles para una mejor asignacion
 				aulasDisponibles.sort(Comparator.comparingInt(aula -> getCapacidadAula(aula)));
-
-				// Cuarto - recorro las ordenadas y me fijo que no este ocupada y que tenga espacio para los estudiantes requeridos
-				for (Aula aula : aulasDisponibles) {
-					if (!aula.isOcupada() && getCapacidadAula(aula) >= materia.getEstudiantes().size()) {
+				int cantidadEstudiantes = materia.getEstudiantes().size();
+				int siguienteAula = 0;
+				// Mientras la materia siga teniendo estudiantes y haya aulas disponibles se
+				// sigue asignando
+				while (cantidadEstudiantes > 0 && siguienteAula < aulasDisponibles.size()) {
+					Aula aula = aulasDisponibles.get(siguienteAula);
+					if (!aula.isOcupada()) {
+						int capacidadAula = getCapacidadAula(aula);
+						// Calculo cuantos estudiantes se asignan en el aula seleccionada arriba - se
+						// asignan los estudiantes
+						int estudiantesAsignar = Math.min(capacidadAula, cantidadEstudiantes);
 						materia.getAulas().add(aula);
 						aula.setOcupada(true);
+						// Al total de estudiantes de la materia le resto los estudiantes asginados <- y
+						// los que quedan los vuelve a asignar a otra aula
+						cantidadEstudiantes = cantidadEstudiantes - estudiantesAsignar;
 						materiaRepository.save(materia);
-						break;
 					}
+					// Indice para pasar a la siguiente aula
+					siguienteAula++;
 				}
 			}
 		}

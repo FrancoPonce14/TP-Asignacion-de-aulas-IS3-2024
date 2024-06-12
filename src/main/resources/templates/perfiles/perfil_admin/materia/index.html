@@ -166,7 +166,11 @@
 								<td>
 									<span th:if="${#lists.isEmpty(materia.aulas)}">N/A</span>
 									<span th:if="${#lists.size(materia.aulas) == 1}" th:text="${materia.aulas[0].numero + ' ' + materia.aulas[0].edificio.nombre}"></span>
-									<a th:if="${#lists.size(materia.aulas) > 1}" th:href="@{/materia/{id}/aulas(id=${materia.id})}">Ver aulas</a>
+									<span th:if="${#lists.size(materia.aulas) > 1}">
+										<span th:each="aula : ${materia.aulas}">
+											<span th:text="${aula.numero + ' ' + aula.edificio.nombre}"></span><br>
+										</span>
+									</span>
 								</td>
                                 <td><span th:text="${materia.carrera.nombre}" /></td>
 										</tr>
