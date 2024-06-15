@@ -96,3 +96,40 @@ El código del algoritmo de asignación se encuentra en `src/main/java/com/servi
 ## Estudiante - Vista Index Parcial
 
 ![Login Success Estudiante](images/LoginSuccessEstudiante.png)
+
+##SQL - datos
+```sql
+/*INSERTAR ESTUDIANTES A MATERIAS*/
+INSERT INTO inscripcion (id_estudiante, id_materia)
+SELECT id_usuario, 8
+FROM estudiante
+WHERE id_usuario NOT IN (
+    SELECT id_estudiante 
+    FROM inscripcion 
+    WHERE id_materia = 8
+)
+ORDER BY RAND()
+LIMIT 100;
+
+/*BORRAR TODAS LAS AULAS ASIGNADAS A MATERIA*/
+DELETE FROM grupo3.asignaciones_aulas
+WHERE materia_id IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19);
+
+/*ACTUALIZAR EL ESTADO DE LAS AULAS EN USO A DESUSO*/
+UPDATE grupo3.aula
+SET ocupada = false
+WHERE id BETWEEN 1 AND 23;
+
+/*BORRAR ESTUDIANTES (RAND) DE MATERIAS*/
+DELETE FROM inscripcion
+WHERE (id_estudiante, id_materia) IN (
+    SELECT id_estudiante, id_materia
+    FROM (
+        SELECT id_estudiante, id_materia
+        FROM inscripcion
+        WHERE id_materia = 8
+        ORDER BY RAND()
+        LIMIT 30
+    ) AS subquery
+);
+```
