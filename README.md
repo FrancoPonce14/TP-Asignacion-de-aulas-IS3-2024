@@ -60,13 +60,9 @@ Además, las aulas fueron creadas en base a las aulas reales disponibles en los 
 
 ## Vista de Administrador: Materias
 
-En esta instancia, se inscribieron algunos estudiantes en algunas materias para probar la asignación de aulas.
+En esta instancia, se inscribieron 1.000 estudiantes repartidos entre las materias para probar la asignación de aulas.
 
-- Para la entrega final, se abordarán algunos problemas de asignación, como:
-  - La posibilidad de asignar más de un aula a una materia en caso de que tenga una gran cantidad de estudiantes y no haya suficientes aulas disponibles para esa capacidad.
-  - En la segunda entrega se resolverá este problema.
-
-En la imagen, algunas materias no tienen inscritos debido a que es solo una prueba. Además, en el campo "AULA" aparece "N/A" (No Asignada). Una vez que un administrador presione el botón de asignación de aulas, estas se asignarán automáticamente.
+En la imagen, se listan las materias. Además, en el campo "AULA" aparece "N/A" (No Asignada). Una vez que un administrador presione el botón de asignación de aulas, estas se asignarán automáticamente.
 
 ![Vista de Materias para Administradores](images/adminViewMaterias.png)
 
@@ -87,7 +83,7 @@ En esta vista de administrador, después de hacer clic en el botón `Asignar Aul
 5. Ordena las aulas disponibles según su capacidad.
 6. Recorre las aulas disponibles, verificando que no estén ocupadas y que cuenten con el espacio suficiente para la cantidad de estudiantes requeridos.
 
-> **Nota:** Para la entrega final, se deberá implementar el [algoritmo de asignación de mas de un aula a una materia](#vista-de-administrador-materias).
+> **Nota:** En la imagen se muestra el resultado de la asignación, donde se puede observar que algunas materias tienen asignadas dos aulas. Esto se debe a las capacidades limitadas tanto de aulas como de materias. Por ejemplo, si una materia cuenta con 100 estudiantes y el aula más grande tiene capacidad para 70 personas en aulas tradicionales o 40-30 en laboratorios, hemos decidido asignar un aula adicional a esa materia (o las aulas que sean necesarias, NO se limita solo a una más).
 
 El código del algoritmo de asignación se encuentra en `src/main/java/com/services/impl/MateriaService.java`.
 
