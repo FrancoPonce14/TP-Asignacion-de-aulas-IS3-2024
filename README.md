@@ -1,5 +1,5 @@
 # Grupo 3
-En este readme se presenta un breve resumen de la funcionalidad del sistema para la primera entrega.
+En este readme se presenta un breve resumen de la funcionalidad del sistema para la entrega final.
 
 ## Índice
 
